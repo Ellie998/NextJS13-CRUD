@@ -1,0 +1,35 @@
+{
+  "posts": {
+    "places": {
+      "nonsan": {
+        "description": "Nonsan is arounded by mountain.",
+        "id": 1,
+        "title": "Place \"Nonsan\""
+      },
+      "seoul": {
+        "description": "There are so many people in Seoul.",
+        "id": 2,
+        "title": "Place Seoul"
+      }
+    },
+    "study": {
+      "JS": {
+        "description": "JS is...",
+        "id": 2,
+        "title": "Javascript"
+      },
+      "html": {
+        "description": "HTML is...",
+        "id": 1,
+        "title": "HTML"
+      }
+    },
+    "travels": {
+      "JeJu": {
+        "description": "Hello, Wellcome to Jeju island.",
+        "id": 1,
+        "title": "Wellcome to Jeju"
+      }
+    }
+  }
+}

@@ -6,7 +6,12 @@ export const metadata = {
   description: "blog app made by Next.jS 13",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const result = await fetch(
+    `https://react-router-practice-19b77-default-rtdb.firebaseio.com/topics.json`
+  );
+  const topics = await result.json();
+
   return (
     <html lang="en">
       <body>
@@ -14,6 +19,15 @@ export default function RootLayout({ children }) {
           <Link href="/">WEB</Link>
         </h1>
         <ol>
+          {topics?.map((topic) =>
+            topic ? (
+              <li key={topic.id}>
+                <Link href={`/read/${topic.id}`}>{topic.title}</Link>
+              </li>
+            ) : null
+          )}
+        </ol>
+        {/* <ol>
           <li>
             <Link href="/post/travel">travel</Link>
           </li>
@@ -23,7 +37,7 @@ export default function RootLayout({ children }) {
           <li>
             <Link href="/post/study">study</Link>
           </li>
-        </ol>
+        </ol> */}
         {children}
         <ul>
           <li>
