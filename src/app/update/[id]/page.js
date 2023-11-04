@@ -25,23 +25,22 @@ export default function Update() {
         e.preventDefault();
         const title = e.target.title.value;
         const description = e.target.body.value;
-        const id = Math.floor(Math.random() * 10000);
         const options = {
-          method: "POST",
+          method: "PATCH",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ title, description, id }),
+          body: JSON.stringify({ title, description }),
         };
         fetch(
-          `https://react-router-practice-19b77-default-rtdb.firebaseio.com/topics.json`,
+          `https://react-router-practice-19b77-default-rtdb.firebaseio.com/topics/${params.id}.json`,
           options
         )
           .then((res) => res.json())
           .then((result) => {
             console.log(result);
             router.refresh();
-            router.push(`/read/${result.name}`);
+            router.push(`/read/${params.id}`);
           });
       }}>
       <p>
