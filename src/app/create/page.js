@@ -18,10 +18,7 @@ export default function Create() {
           },
           body: JSON.stringify({ title, description, id }),
         };
-        fetch(
-          `https://react-router-practice-19b77-default-rtdb.firebaseio.com/topics.json`,
-          options
-        )
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}.json`, options)
           .then((res) => res.json())
           .then((result) => {
             console.log(result);

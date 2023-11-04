@@ -24,9 +24,7 @@ export default function Control() {
               onClick={() => {
                 const options = { method: "DELETE" };
                 fetch(
-                  "https://react-router-practice-19b77-default-rtdb.firebaseio.com/topics/" +
-                    params.id +
-                    ".json",
+                  `${process.env.NEXT_PUBLIC_API_URL}/${params.id}.json`,
                   options
                 )
                   .then((res) => res.json())

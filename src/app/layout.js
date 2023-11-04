@@ -8,10 +8,9 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const result = await fetch(
-    `https://react-router-practice-19b77-default-rtdb.firebaseio.com/topics.json`,
-    { cache: "no-store" }
-  );
+  const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}.json`, {
+    cache: "no-store",
+  });
   const topics = await result.json();
 
   return (

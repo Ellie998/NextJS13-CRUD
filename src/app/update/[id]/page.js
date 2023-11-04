@@ -32,10 +32,7 @@ export default function Update() {
           },
           body: JSON.stringify({ title, description }),
         };
-        fetch(
-          `https://react-router-practice-19b77-default-rtdb.firebaseio.com/topics/${params.id}.json`,
-          options
-        )
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/${params.id}.json`, options)
           .then((res) => res.json())
           .then((result) => {
             console.log(result);
