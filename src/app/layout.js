@@ -18,26 +18,17 @@ export default async function RootLayout({ children }) {
         <h1>
           <Link href="/">WEB</Link>
         </h1>
+
         <ol>
-          {topics?.map((topic) =>
-            topic ? (
-              <li key={topic.id}>
-                <Link href={`/read/${topic.id}`}>{topic.title}</Link>
-              </li>
-            ) : null
-          )}
+          {Object.keys(topics)?.map((name, i) => (
+            <li key={i}>
+              <Link href={`/read/${name}`}>
+                {topics[name] ? topics[name].title : null}
+              </Link>
+            </li>
+          ))}
         </ol>
-        {/* <ol>
-          <li>
-            <Link href="/post/travel">travel</Link>
-          </li>
-          <li>
-            <Link href="/post/place">place</Link>
-          </li>
-          <li>
-            <Link href="/post/study">study</Link>
-          </li>
-        </ol> */}
+
         {children}
         <ul>
           <li>
